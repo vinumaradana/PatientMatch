@@ -1,5 +1,32 @@
-var AWS = require("aws-sdk");
-require("dotenv").config();
+import express from "express";
+import {PORT, mongoDBURL} from "./config.js"
+import dotenv from "dotenv";
+import mongoose from 'mongoose';
+
+const app = express();
+
+app.get('/', (request, response)=>{
+    console.log(request)
+    return response.status(234).send('lololol');
+})
+
+
+
+mongoose
+    .connect(mongoDBURL)
+    .then(()=>{
+        console.log('App connected to databse');
+        app.listen(PORT, ()=>{
+            console.log('hello');
+        })
+    })
+    .catch((error) =>{
+        console.log(error);
+    });
+
+
+import AWS from "aws-sdk";
+dotenv.config();
 
 var comprehendmedical = new AWS.ComprehendMedical({
     comprehendmedical: "2018-10-30"

@@ -12,12 +12,16 @@ function Registration() {
         If not, feel free to{" "}
         <Link
           to="/ChartDrop"
-          style={{ textDecoration: "none", color: "#89CFF0" }}
+          style={{ textDecoration: "underline", color: "#89CFF0" }}
         >
           continue as guest.
         </Link>
       </h3>
-      <RegistrationForm />
+      <h3 className="input-group-label">email:</h3>
+      <input className="input-group-input"></input>
+      <h3 className="input-group-label">password:</h3>
+      <input className="input-group-input"></input>
+      <button className="reg-button">Register</button>
     </div>
   );
 }

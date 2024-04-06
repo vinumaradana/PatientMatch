@@ -9,7 +9,13 @@ function Home() {
       <h2>The premier clinical trial matching network</h2>
       <button
         className="btn btn-primary"
-        style={{ width: "250px", height: "75px", fontSize: "30px" }}
+        style={{
+          backgroundColor: "#89CFF0",
+          color: "#000000",
+          width: "230px",
+          height: "75px",
+          fontSize: "30px",
+        }}
       >
         <Link to="/Reg" style={{ textDecoration: "none", color: "inherit" }}>
           Get Started

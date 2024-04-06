@@ -20,7 +20,12 @@ function ChartDrop() {
           cols="150"
         ></textarea>
       </div>
-      <button className="submit-button">Find a match</button>
+      <button
+        style={{ backgroundColor: "#89CFF0", color: "#000000" }}
+        className="submit-button"
+      >
+        Find a match
+      </button>
     </div>
   );
 }

@@ -21,6 +21,8 @@
     width: 150px; /* Remove the quotation marks */
     height: 50px; /* Remove the quotation marks */
     font-size: 24px; /* Remove the quotation marks */
+    justify-content: center;
+    align-items: center;
     text-align: center;
     background-color: #89CFF0;
     color: #000000;

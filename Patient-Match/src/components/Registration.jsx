@@ -1,5 +1,4 @@
 import React from "react";
-import RegistrationForm from "./Form";
 import { Link } from "react-router-dom";
 import "./Registration.css";
 
@@ -21,7 +20,14 @@ function Registration() {
       <input className="input-group-input"></input>
       <h3 className="input-group-label">password:</h3>
       <input className="input-group-input"></input>
-      <button className="reg-button">Register</button>
+      <button className="reg-button">
+        <Link
+          to="/ChartDrop"
+          style={{ textDecoration: "none", color: "inherit" }}
+        >
+          Register
+        </Link>
+      </button>
     </div>
   );
 }

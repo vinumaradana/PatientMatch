@@ -1,5 +1,21 @@
-var AWS = require("aws-sdk");
-require("dotenv").config();
+import express from "express";
+import {PORT} from "./config.js"
+import dotenv from "dotenv";
+
+const app = express();
+
+app.get('/', (request, response)=>{
+    console.log(request)
+    return response.status(234).send('lololol');
+})
+
+app.listen(PORT, ()=>{
+    console.log('hello');
+})
+
+
+import AWS from "aws-sdk";
+dotenv.config();
 
 var comprehendmedical = new AWS.ComprehendMedical({
     comprehendmedical: "2018-10-30"

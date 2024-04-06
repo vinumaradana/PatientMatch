@@ -30,6 +30,28 @@ app.post('/patients', async (request, response)=>{
     }
 })
 
+//route for save clincals. EXTRA FOR WHEN WE ADD CLINICAL PAGE 
+app.post('/clinicals', async (request, response)=>{
+    try{
+        if(!request.body.data){
+            return response.status(400).send({
+                message: 'Send all required fields: data',
+            });
+        }
+        const newClinical = {
+            data: request.body.data,
+        };
+        const clinical = await Clinical.create(newClinical);
+        return response.status(201).send(clinical);
+    }catch(error){
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+})
+
+
+//routes for getting all clinical trial data
+app.get('/clinicals')
 
 mongoose
     .connect(mongoDBURL)
@@ -46,6 +68,7 @@ mongoose
 
 import AWS from "aws-sdk";
 import { Patient } from "./models/patientModel.js";
+import { Clinical } from "./models/clinicalModel.js";
 dotenv.config();
 
 var comprehendmedical = new AWS.ComprehendMedical({

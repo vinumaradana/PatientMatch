@@ -4,12 +4,31 @@ import dotenv from "dotenv";
 import mongoose from 'mongoose';
 
 const app = express();
+app.use(express.json());
 
 app.get('/', (request, response)=>{
     console.log(request)
     return response.status(234).send('lololol');
 })
 
+//route for save patient. 
+app.post('/patients', async (request, response)=>{
+    try{
+        if(!request.body.data){
+            return response.status(400).send({
+                message: 'Send all required fields: data',
+            });
+        }
+        const newPatient = {
+            data: request.body.data,
+        };
+        const patient = await Patient.create(newPatient);
+        return response.status(201).send(patient);
+    }catch(error){
+        console.log(error.message);
+        response.status(500).send({message: error.message});
+    }
+})
 
 
 mongoose
@@ -26,6 +45,7 @@ mongoose
 
 
 import AWS from "aws-sdk";
+import { Patient } from "./models/patientModel.js";
 dotenv.config();
 
 var comprehendmedical = new AWS.ComprehendMedical({

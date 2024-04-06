@@ -6,4 +6,4 @@ const patientSchema = mongoose.Schema(
     }
 );
 
-const Patient = mongoose.model('Patient', patientSchema)
+export const Patient = mongoose.model('Patient', patientSchema)

@@ -3,17 +3,16 @@
     text-align: left;
   }
 
-.input-group label {
+.input-group-label {
     display: block;
-    font-size: 30px;
-    margin-bottom: 30px; /* Add margin between labels */
+    margin-bottom: 30px;
   }
   
-  .input-group input {
+  .input-group-input {
     display: block;
     width: 55%;
-    height:100%
+    height:85%;
     padding: 20px;
-    margin-bottom: 30px; /* Add margin between input fields */
+    margin-bottom: 30px;
   }
   

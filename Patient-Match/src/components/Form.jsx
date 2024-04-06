@@ -25,20 +25,20 @@ function RegistrationForm() {
 
   return (
     <form className="form-container" onSubmit={handleSubmit}>
-      <label className="input-group label">
+      <label className="input-group-label">
         Email:
         <input
-          className="input-group input"
+          className="input-group-input"
           type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
         />
       </label>
-      <label className="input-group label">
+      <label className="input-group-label">
         Password:
         <input
-          className="input-group input"
+          className="input-group-input"
           type="password"
           name="password"
           value={formData.password}

@@ -49,9 +49,57 @@ app.post('/clinicals', async (request, response)=>{
     }
 })
 
+//routes for getting all patient data
+app.get('/patients', async (request, response)=>{
+    try{
+        const patients = await Patient.find({});
+        return response.status(200).json(patients); 
+
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message:error.message});
+    }
+});
+
 
 //routes for getting all clinical trial data
-app.get('/clinicals')
+app.get('/clinicals', async (request, response)=>{
+    try{
+        const clinicals = await Clinical.find({});
+        return response.status(200).json(clinicals); 
+
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message:error.message});
+    }
+});
+
+//routes for getting ONE patient data
+app.get('/patients/:id', async (request, response)=>{
+    try{
+        const {id} = request.params; 
+        const patient = await Patient.findById(id)
+        return response.status(200).json(patient); 
+
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message:error.message});
+    }
+});
+
+//routes for getting ONE clinical trial data
+app.get('/clinicals/:id', async (request, response)=>{
+    try{
+        const {id} = request.params; 
+        const clinical = await Clinical.findById(id)
+        return response.status(200).json(clinical); 
+
+    } catch (error) {
+        console.log(error.message);
+        response.status(500).send({message:error.message});
+    }
+});
+
 
 mongoose
     .connect(mongoDBURL)

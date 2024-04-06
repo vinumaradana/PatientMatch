@@ -1,0 +1,19 @@
+/* Form.css */
+.form-container {
+    text-align: left;
+  }
+
+.input-group label {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 30px; /* Add margin between labels */
+  }
+  
+  .input-group input {
+    display: block;
+    width: 55%;
+    height:100%
+    padding: 20px;
+    margin-bottom: 30px; /* Add margin between input fields */
+  }
+  

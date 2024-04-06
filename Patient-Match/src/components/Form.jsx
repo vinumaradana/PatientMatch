@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import "./Form.css";
 
 function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -23,19 +24,21 @@ function RegistrationForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
+    <form className="form-container" onSubmit={handleSubmit}>
+      <label className="input-group label">
         Email:
         <input
+          className="input-group input"
           type="email"
           name="email"
           value={formData.email}
           onChange={handleChange}
         />
       </label>
-      <label>
+      <label className="input-group label">
         Password:
         <input
+          className="input-group input"
           type="password"
           name="password"
           value={formData.password}

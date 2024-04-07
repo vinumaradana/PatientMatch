@@ -1,15 +1,18 @@
 /* Navigation.css */
 .nav-container {
-  background-color: #000000;
-  padding: 20px;
-  margin-top: 0px;
-  width: 100%;
+  background-color: rgb(29, 29, 29);
+  padding: 22px 30px;
+  position: fixed; 
+  top: 0;
+  width: 100%; 
+  /* z-index: 1000; Ensure navigation bar is above other content */
 }
 
 .nav-list {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: flex;
 }
 
 .nav-item {
@@ -24,7 +27,7 @@
 .nav-link {
   text-decoration: none;
   color: #fff;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .nav-link:hover {

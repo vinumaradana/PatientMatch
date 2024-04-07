@@ -8,6 +8,7 @@ import ChartDrop from "./components/ChartDrop";
 import Navigation from "./components/Navigation";
 import About from "./components/About";
 import Host from "./components/Host";
+import Submit from "./components/Submit";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/ChartDrop" element={<ChartDrop />} />
         <Route path="/About" element={<About />} />
         <Route path="/Host" element={<Host />} />
+        <Route path="/Submit" element={<Submit />} />
       </Routes>
     </Router>
   );

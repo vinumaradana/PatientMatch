@@ -102,8 +102,8 @@ const ChartDrop = () => {
       </button>
 
       {/* Conditionally render documents information */}
-      {loading ? (
-        <p></p>
+      {similarIds.length === 0 ? (
+        <h1>No matches found</h1>
       ) : (
         <div>
           <h1>Your Matches</h1>

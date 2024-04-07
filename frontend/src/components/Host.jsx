@@ -4,7 +4,11 @@ import "./ChartDrop.css";
 function Host() {
   return (
     <div className="chart-container">
-      <h1>Upload clinical trial details here:</h1>
+      <h1>Thank you for choosing us to host your trial.</h1>
+      <h3>
+        Simply copy and paste your tabular data, and we'll create a directory
+        for you. No hassle, so you can focus on the important work.
+      </h3>
       <div class="input-group">
         <div class="input-group-prepend">
           <span class="input-group-text"></span>
@@ -26,7 +30,6 @@ function Host() {
             boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // Shadow for depth
             transition: "border-color 0.3s ease", // Smooth border color transition
           }}
-          
         ></textarea>
       </div>
 

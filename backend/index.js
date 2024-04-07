@@ -3,7 +3,10 @@ import {PORT, mongoDBURL} from "./config.js"
 import dotenv from "dotenv";
 import mongoose from 'mongoose';
 import cors from 'cors';
-
+import AWS from "aws-sdk";
+import { Patient } from "./models/patientModel.js";
+import { Clinical } from "./models/clinicalModel.js";
+dotenv.config();
 
 
 const app = express();
@@ -119,31 +122,10 @@ mongoose
     });
 
 
-import AWS from "aws-sdk";
-import { Patient } from "./models/patientModel.js";
-import { Clinical } from "./models/clinicalModel.js";
-dotenv.config();
-
 var comprehendmedical = new AWS.ComprehendMedical({
     comprehendmedical: "2018-10-30"
 });
 
-async function getDetails(text) {
-    var params = {
-        Text: text
-    };
-
-    var data = await comprehendmedical.detectEntitiesV2(params).promise();
-    console.log(data);
-    var diseases = [];
-    for (const entity of data["Entities"]) {
-        if (entity["Category"] === "MEDICAL_CONDITION") {
-            diseases.push(entity["Text"]);
-        }
-
-    }
-    return ("identified desases are: " + diseases.join(", "));
-}
 
 async function getMedicalDetails(text) {
     try {
@@ -157,10 +139,25 @@ async function getMedicalDetails(text) {
         throw error; // rethrow the error to be handled by the caller
     }
 }
-async function main(text) {
-    var diseases = await getDetails(text);
-    console.log("Getting Detials \n");
-    console.log(diseases);
-}
-main('Pt is 87 yo woman, highschool teacher with past medical history that includes status post cardiac catheterization in April 2019. She presents today with palpitations and chest pressure HPI : Sleeping trouble on present dosage of Clonidine. Severe Rash  on face and leg, slightly itchy. Meds : Vyvanse 50 mgs po at breakfast daily, Clonidine 0.2 mgs -- 1 and 1 / 2 tabs po qhs HEENT : Boggy inferior turbinates, No oropharyngeal lesion. Lungs : clear.')
 
+// Define a route to handle the matching process
+app.post('/matchProcess', async (request, response) => {
+    try {
+      // Find the last inserted document in the 'Market' collection
+        const lastInsertedDocument = await Patient.find({}).sort({_id: -1}).limit(1);
+  
+      // Fetch all clinical data
+    //   const clinicalData = await Clinical.find({});
+  
+      // Your matching process logic here
+      // This could involve processing patient and clinical data, performing calculations, etc.
+  
+      // Example response indicating success
+      response.status(200).json({ message: 'Matching process done'});
+    } catch (error) {
+      // Handle errors appropriately
+      console.error('Error in completing matching process:', error);
+      response.status(500).json({ message: 'Error in completing matching process' });
+    }
+  });
+  

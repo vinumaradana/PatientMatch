@@ -5,6 +5,26 @@ import axios from 'axios';
 
 const ChartDrop = () => {
   const [data, setData] = useState('');
+  
+  // const handleSaveData = () => {
+  //   const submitData = {
+  //     data,
+  //   };
+  //   axios
+  //     .post('http://localhost:5555/patients', submitData)
+  //     .then(() => {
+  //       var id = submitData._id
+  //       console.log("hello" + id);
+  //       alert('Matching process initiated');
+  //       console.log('Matching process initiated');
+      
+  //     })
+  //     .catch((error) => {
+  //       alert('An error occurered')
+  //       console.log(error);
+  //     });
+  // };
+
   const handleSaveData = () => {
     const submitData = {
       data,
@@ -12,14 +32,27 @@ const ChartDrop = () => {
     axios
       .post('http://localhost:5555/patients', submitData)
       .then(() => {
-        alert('UR GOOD')
-        console.log('yay somethig happened')
+  
+        axios.post('http://localhost:5555/matchProcess')
+          .then(() => {
+            alert('Matching process initiated');
+            console.log('Matching process initiated');
+          })
+          .catch((error) => {
+            alert('Error initiating matching process');
+            console.log(error);
+          });
+      
       })
       .catch((error) => {
         alert('An error occurered')
         console.log(error);
       });
   };
+
+  
+
+
   return (
     <div className="chart-container">
       <h1>Upload your chart here:</h1>

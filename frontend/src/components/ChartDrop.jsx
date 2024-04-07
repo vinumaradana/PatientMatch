@@ -64,7 +64,7 @@ const ChartDrop = () => {
 
   return (
     <div className="chart-container">
-      <h1>Upload your chart here:</h1>
+      <h1 className="chart-title">Upload your chart here:</h1>
       <h3>
         Simply copy and paste your medical information in the text box below and
         we'll match you shortly.
@@ -110,11 +110,21 @@ const ChartDrop = () => {
           {documents.map((document, index) => (
             <div key={document._id}>
               <h2>{document.data.title}</h2>
-              <p><strong>Condition:</strong> {document.data.condition}</p>
-              <p><strong>Start Date:</strong> {document.data.start_date}</p>
-              <p><strong>Location:</strong> {document.data.location}</p>
-              <p><strong>Brief Summary:</strong> {document.data.brief_summary}</p>
-              <p><strong>Similarity Score:</strong> {similarityScores[index]}</p>
+              <p>
+                <strong>Condition:</strong> {document.data.condition}
+              </p>
+              <p>
+                <strong>Start Date:</strong> {document.data.start_date}
+              </p>
+              <p>
+                <strong>Location:</strong> {document.data.location}
+              </p>
+              <p>
+                <strong>Brief Summary:</strong> {document.data.brief_summary}
+              </p>
+              <p>
+                <strong>Similarity Score:</strong> {similarityScores[index]}
+              </p>
               <div className="similarity-bar">
                 <div
                   className="similarity-bar-inner"

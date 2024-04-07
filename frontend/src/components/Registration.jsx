@@ -20,7 +20,7 @@
 //       <input className="input-group-input"></input>
 //       <h3 className="input-group-label">Password:</h3>
 //       <input className="input-group-input"></input>
-    
+
 //         <Link
 //           to="/ChartDrop"
 //           className="register-link"

@@ -170,6 +170,7 @@ app.post('/matchProcess', async (request, response) => {
         });
 
         const similarIds = [];
+        const similarityScore = []; 
         // Loop through each clinical data object
         clinicalData.forEach(clinical => {
             // Get the text attribute from the current clinical data object
@@ -181,10 +182,11 @@ app.post('/matchProcess', async (request, response) => {
             // If similarity score is greater than 0.6, add the object id to similarIds array
             if (similarity > 0.6) {
                 similarIds.push(clinical._id);
+                similarityScore.push(similarity); 
             }
         });
 
-        response.status(200).json({ message: 'Matching process done', similarIds});
+        response.status(200).json({ message: 'Matching process done', similarIds, similarityScore});
     } catch (error) {
         // Handle errors appropriately
         console.error('Error in completing matching process:', error);

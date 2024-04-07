@@ -69,12 +69,12 @@ const ChartDrop = () => {
         Simply copy and paste your medical chart in the text box below and we'll
         match you shortly.
       </h3>
-      <h5 style={{ marginTop: "0px", fontSize: "" }}>
+      <h4 style={{ marginTop: "0px", fontSize: "" }}>
         <i>
           Please try to include at least your age, gender, and preexisting
           medical conditions for the best results.
         </i>
-      </h5>
+      </h4>
 
       <div className="input-group">
         <div className="input-group-prepend">

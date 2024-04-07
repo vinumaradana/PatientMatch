@@ -167,7 +167,6 @@ app.post('/matchProcess', async (request, response) => {
             } else {
                 patientText += entity.Text + ' ';
             }
-            console.log(age + ' ' + gender + ' ');
         });
 
         const similarIds = [];

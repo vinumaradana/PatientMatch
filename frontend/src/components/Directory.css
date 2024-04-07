@@ -5,7 +5,7 @@
   }
 
   h1 {
-    font-size: 24px;
+    font-size: 22px;
   }
   
   .trial-table {
@@ -16,7 +16,7 @@
   .trial-table th,
 
   .trial-table td {
-    border: 1px solid rgb(255, 255, 255);
+    border: 3px solid rgb(255, 255, 255);
     padding: 8px;
   }
   
@@ -26,5 +26,6 @@
   
   .trial-table tbody  {
     background-color: #ffffff81;
+    font-size: 14px;
   }
-  
+

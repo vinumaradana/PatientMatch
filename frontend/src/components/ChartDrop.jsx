@@ -5,6 +5,7 @@ import axios from "axios";
 const ChartDrop = () => {
   const [data, setData] = useState("");
   const [similarIds, setSimilarIds] = useState([]);
+  const [similarityScores, setSimilarityScores] = useState([]);
   const [documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(false); // Add loading state
 
@@ -46,8 +47,9 @@ const ChartDrop = () => {
           .post("http://localhost:5555/matchProcess")
           .then((response) => {
             console.log("Matching process initiated");
-            const { similarIds } = response.data;
+            const { similarIds, similarityScore } = response.data;
             setSimilarIds(similarIds);
+            setSimilarityScores(similarityScore);
           })
           .catch((error) => {
             alert("Error initiating matching process");
@@ -101,14 +103,24 @@ const ChartDrop = () => {
 
       {/* Conditionally render documents information */}
       {loading ? (
-        <p>Loading...</p>
+        <p></p>
       ) : (
         <div>
+          <h1>Your Matches</h1>
           {documents.map((document, index) => (
-            <div key={index}>
-              <h2>Document {index + 1}</h2>
-              <p>ID: {document._id}</p>
-              {/* Render other information of the document */}
+            <div key={document._id}>
+              <h2>{document.data.title}</h2>
+              <p><strong>Condition:</strong> {document.data.condition}</p>
+              <p><strong>Start Date:</strong> {document.data.start_date}</p>
+              <p><strong>Location:</strong> {document.data.location}</p>
+              <p><strong>Brief Summary:</strong> {document.data.brief_summary}</p>
+              <p><strong>Similarity Score:</strong> {similarityScores[index]}</p>
+              <div className="similarity-bar">
+                <div
+                  className="similarity-bar-inner"
+                  style={{ width: `${similarityScores[index] * 100}%` }}
+                ></div>
+              </div>
             </div>
           ))}
         </div>

@@ -3,6 +3,11 @@ import {PORT, mongoDBURL} from "./config.js"
 import dotenv from "dotenv";
 import mongoose from 'mongoose';
 import cors from 'cors';
+import AWS from "aws-sdk";
+import { Patient } from "./models/patientModel.js";
+import { Clinical } from "./models/clinicalModel.js";
+import {EJSON} from 'bson';
+dotenv.config();
 
 
 const app = express();
@@ -35,8 +40,23 @@ const saveData = async (request, response, Model) => {
 };
 
 // Route for saving patient data
+// app.post('/patients', async (request, response) => {
+//     await saveData(request, response, Patient);
+// });
 app.post('/patients', async (request, response) => {
-    await saveData(request, response, Patient);
+    try {
+        const newData = request.body.data;
+        const medicalDetails = await getMedicalDetails(newData);
+        // Now you have the medical details, you can process further or save them to the database
+        const patientData = {
+            data: medicalDetails
+        };
+        const data = await Patient.create(patientData);
+        return response.status(201).send(data);
+    } catch (error) {
+        console.error(error);
+        response.status(500).send({ message: error.message });
+    }
 });
 
 // Route for saving clinical data
@@ -103,35 +123,69 @@ mongoose
     });
 
 
-import AWS from "aws-sdk";
-import { Patient } from "./models/patientModel.js";
-import { Clinical } from "./models/clinicalModel.js";
-dotenv.config();
-
 var comprehendmedical = new AWS.ComprehendMedical({
     comprehendmedical: "2018-10-30"
 });
 
-async function getDetails(text) {
-    var params = {
-        Text: text
-    };
 
-    var data = await comprehendmedical.detectEntitiesV2(params).promise();
-    console.log(data);
-    var diseases = [];
-    for (const entity of data["Entities"]) {
-        if (entity["Category"] === "MEDICAL_CONDITION") {
-            diseases.push(entity["Text"]);
-        }
-
+async function getMedicalDetails(text) {
+    try {
+        const params = {
+            Text: text
+        };
+        const data = await comprehendmedical.detectEntitiesV2(params).promise();
+        return data; // Return the output of calling AWS Comprehend Medical
+    } catch (error) {
+        console.error("Error processing medical details:", error);
+        throw error; // rethrow the error to be handled by the caller
     }
-    return ("identified desases are: " + diseases.join(", "));
 }
-async function main(text) {
-    var diseases = await getDetails(text);
-    console.log("Getting Detials \n");
-    console.log(diseases);
-}
-main('Pt is 87 yo woman, highschool teacher with past medical history that includes status post cardiac catheterization in April 2019. She presents today with palpitations and chest pressure HPI : Sleeping trouble on present dosage of Clonidine. Severe Rash  on face and leg, slightly itchy. Meds : Vyvanse 50 mgs po at breakfast daily, Clonidine 0.2 mgs -- 1 and 1 / 2 tabs po qhs HEENT : Boggy inferior turbinates, No oropharyngeal lesion. Lungs : clear.')
 
+// Define a route to handle the matching process
+app.post('/matchProcess', async (request, response) => {
+    try {
+      // Find the last inserted document in the 'Market' collection
+        const lastInsertedDocument = await Patient.find({}).sort({_id: -1}).limit(1);
+  
+      // Fetch all clinical data
+       const clinicalData = await Clinical.find({});
+      
+       // Access the data object
+// Extract the 'Entities' array from the 'data' object
+const entities = lastInsertedDocument[0].data.Entities;
+
+// Initialize variables to store age and gender
+let age, gender;
+
+// Loop through the Entities array to find the age and gender
+entities.forEach(entity => {
+    if (entity.Type === "AGE") {
+        age = entity.Text;
+    } else if (entity.Type === "GENDER") {
+        gender = entity.Text;
+    }
+});
+
+
+
+
+      // Your matching process logic here
+      // Assume 'dataDocument' is the MongoDB document containing the JSON data
+    //   const data = JSON.parse(jsonformat); // Assuming 'dataDocument' contains the string representation of JSON data
+    //   const ageEntity = data.Entities.find(entity => entity.Type === 'AGE');
+    //   const genderEntity = data.Entities.find(entity => entity.Type === 'GENDER');
+  
+    //   const age = ageEntity ? ageEntity.Text : null;
+    //   const gender = genderEntity ? genderEntity.Text : null;
+  
+    //   console.log("Age:", age);
+    //   console.log("Gender:", gender);
+      // Example response indicating success
+      response.status(200).json({ message: 'Matching process done', age, gender});
+    } catch (error) {
+      // Handle errors appropriately
+      console.error('Error in completing matching process:', error);
+      response.status(500).json({ message: 'Error in completing matching process' });
+    }
+  });
+  

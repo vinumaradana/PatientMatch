@@ -1,27 +1,64 @@
 import React from "react";
-import { useState } from "react";
+import { useState } from 'react';
 import "./ChartDrop.css";
+<<<<<<< HEAD
 import axios from "axios";
 import { Link } from "react-router-dom";
 
+=======
+import axios from 'axios';
+>>>>>>> refs/remotes/origin/main
 
 const ChartDrop = () => {
-  const [data, setData] = useState("");
+  const [data, setData] = useState('');
+  
+  // const handleSaveData = () => {
+  //   const submitData = {
+  //     data,
+  //   };
+  //   axios
+  //     .post('http://localhost:5555/patients', submitData)
+  //     .then(() => {
+  //       var id = submitData._id
+  //       console.log("hello" + id);
+  //       alert('Matching process initiated');
+  //       console.log('Matching process initiated');
+      
+  //     })
+  //     .catch((error) => {
+  //       alert('An error occurered')
+  //       console.log(error);
+  //     });
+  // };
+
   const handleSaveData = () => {
     const submitData = {
       data,
     };
     axios
-      .post("http://localhost:5555/patients", submitData)
+      .post('http://localhost:5555/patients', submitData)
       .then(() => {
-        alert("UR GOOD");
-        console.log("yay somethig happened");
+  
+        axios.post('http://localhost:5555/matchProcess')
+          .then(() => {
+            alert('Matching process initiated');
+            console.log('Matching process initiated');
+          })
+          .catch((error) => {
+            alert('Error initiating matching process');
+            console.log(error);
+          });
+      
       })
       .catch((error) => {
-        alert("An error occurered");
+        alert('An error occurered')
         console.log(error);
       });
   };
+
+  
+
+
   return (
     <div className="chart-container">
       <h1>Upload your chart here:</h1>
@@ -34,6 +71,7 @@ const ChartDrop = () => {
         <div class="input-group-prepend">
           <span class="input-group-text"></span>
         </div>
+<<<<<<< HEAD
         <textarea
           class="form-control"
           aria-label="With textarea"
@@ -53,6 +91,14 @@ const ChartDrop = () => {
           }}
           
         ></textarea>
+=======
+        <input
+          type="text"
+          className="form-control"
+          value={data}
+          onChange={(e)=>setData(e.target.value)}
+        />
+>>>>>>> refs/remotes/origin/main
       </div>
 
 
@@ -69,6 +115,6 @@ const ChartDrop = () => {
 
     </div>
   );
-};
+}
 
 export default ChartDrop;

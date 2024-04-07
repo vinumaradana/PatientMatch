@@ -20,6 +20,7 @@
     "express": "^4.19.2",
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.0",
-    "nodemon": "^3.1.0"
+    "nodemon": "^3.1.0",
+    "string-similarity-js": "^2.1.4"
   }
 }

@@ -6,7 +6,7 @@ import cors from 'cors';
 import AWS from "aws-sdk";
 import { Patient } from "./models/patientModel.js";
 import { Clinical } from "./models/clinicalModel.js";
-import { EJSON } from 'bson';
+import { stringSimilarity } from "string-similarity-js";
 dotenv.config();
 
 
@@ -169,23 +169,23 @@ app.post('/matchProcess', async (request, response) => {
             }
         });
 
+        const similarIds = [];
+        // Loop through each clinical data object
+        clinicalData.forEach(clinical => {
+            // Get the text attribute from the current clinical data object
+            const text = clinical.data.text;
 
+            // Calculate the similarity score between patientText and the current clinical data text
+            const similarity = stringSimilarity(patientText, text);
 
+            // If similarity score is greater than 0.5, add the object id to similarIds array
+            if (similarity > 0.4) {
+                console.log(similarity)
+                similarIds.push(clinical._id);
+            }
+        });
 
-
-        // Your matching process logic here
-        // Assume 'dataDocument' is the MongoDB document containing the JSON data
-        //   const data = JSON.parse(jsonformat); // Assuming 'dataDocument' contains the string representation of JSON data
-        //   const ageEntity = data.Entities.find(entity => entity.Type === 'AGE');
-        //   const genderEntity = data.Entities.find(entity => entity.Type === 'GENDER');
-
-        //   const age = ageEntity ? ageEntity.Text : null;
-        //   const gender = genderEntity ? genderEntity.Text : null;
-
-        //   console.log("Age:", age);
-        //   console.log("Gender:", gender);
-        // Example response indicating success
-        response.status(200).json({ message: 'Matching process done', patientText });
+        response.status(200).json({ message: 'Matching process done', similarIds });
     } catch (error) {
         // Handle errors appropriately
         console.error('Error in completing matching process:', error);

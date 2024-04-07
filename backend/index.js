@@ -161,12 +161,13 @@ app.post('/matchProcess', async (request, response) => {
         // Loop through the Entities array to find the age and gender
         entities.forEach(entity => {
             if (entity.Type === "AGE") {
-                age = entity.Text;
+                age = parseInt(entity.Text);
             } else if (entity.Type === "GENDER") {
-                gender = entity.Text;
+                gender = entity.Text.toLowerCase();
             } else {
                 patientText += entity.Text + ' ';
             }
+            console.log(age + ' ' + gender + ' ');
         });
 
         const similarIds = [];
@@ -175,14 +176,18 @@ app.post('/matchProcess', async (request, response) => {
         clinicalData.forEach(clinical => {
             // Get the text attribute from the current clinical data object
             const text = clinical.data.text;
+            const ageInRange = age >= clinical.data.age.min && age <= clinical.data.age.max;
+            const genderMatches = clinical.data.gender === "either" || clinical.data.gender === gender;
 
-            // Calculate the similarity score between patientText and the current clinical data text
-            const similarity = stringSimilarity(patientText, text);
+            if (ageInRange && genderMatches) {
+                // Calculate the similarity score between patientText and the current clinical data text
+                const similarity = stringSimilarity(patientText, text);
 
-            // If similarity score is greater than 0.6, add the object id to similarIds array
-            if (similarity > 0.6) {
-                similarIds.push(clinical._id);
-                similarityScore.push(similarity); 
+                // If similarity score is greater than 0.6, add the object id to similarIds array
+                if (similarity > 0.6) {
+                    similarIds.push(clinical._id);
+                    similarityScore.push(similarity); 
+                }
             }
         });
 

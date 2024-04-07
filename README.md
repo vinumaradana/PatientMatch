@@ -47,4 +47,6 @@ PatientMatch is a comprehensive application that facilitates patient and clinica
 
   
 ## Contributors 
-Prachi Heda, Vinuthna Maradana, Chris Mo
+* Prachi Heda @prachi-heda
+* Vinuthna Maradana @vinumaradana
+* Chris Mo @chriss-mo

@@ -50,6 +50,11 @@
     color: #45a3f6;
   }
   
+  .guest-link:hover {
+    text-decoration: underline;
+    color: #194a75;
+  }
+  
   .registration-title {
     font-size: 48px;
     color: #000000;

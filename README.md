@@ -36,12 +36,12 @@ PatientMatch is a comprehensive application that facilitates patient and clinica
     
 ## Getting Started
 1. clone the directory.
-2. 'cd' to backend folder.
-3. create '.env' file with AWS credentials (AWS_REGION, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
-4. create 'config.js' file with MongoDB links (PORT, mongoDBURL)
-5. 'npm run dev'
-6. create a new terminal, and 'cd' frontend folder
-7. 'npm run dev'
+2. `cd` to backend folder.
+3. create `.env` file with AWS credentials (AWS_REGION, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
+4. create `config.js` file with MongoDB links (PORT, mongoDBURL)
+5. `npm run dev`
+6. create a new terminal, and `cd` frontend folder
+7. `npm run dev`
 8. open in chrome browser
 
 

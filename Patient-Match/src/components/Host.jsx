@@ -13,9 +13,23 @@ function Host() {
           class="form-control"
           aria-label="With textarea"
           rows="10"
-          cols="150"
+          cols="110"
+          style={{
+            resize: "none", // Disable textarea resizing
+            borderRadius: "6px", // Rounded corners
+            border: "1px solid #ccc", // Light gray border
+            padding: "10px", // Padding inside the textarea
+            fontSize: "16px", // Font size
+            lineHeight: "1.5", // Line height for readability
+            width: "100%", // Full width
+            boxSizing: "border-box", // Include padding and border in the width
+            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // Shadow for depth
+            transition: "border-color 0.3s ease", // Smooth border color transition
+          }}
+          
         ></textarea>
       </div>
+
       <button
         style={{ backgroundColor: "#89CFF0", color: "#000000" }}
         className="submit-button"

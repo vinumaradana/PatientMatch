@@ -1,12 +1,32 @@
 .chart-container {
   margin-top: 0px;
-    text-align: left;
-    padding: 100px;
-  }
+  text-align: left;
+  padding: 100px;
+ }
 
 .submit-button {
-  width: 200px; /* Remove the quotation marks */
-  height: 75px; /* Remove the quotation marks */
-  font-size: 24px; /* Remove the quotation marks */
   margin-top: 20px;
+  display: inline-block;
+  background-color: #60cdff;
+  color: black;
+  padding: 10px 30px;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+} */
+
+ submit-button:hover {
+  background-color: #60cdff;
+} 
+
+.submit-link {
+  display: inline-block;
+  background-color: #60cdff;
+  color: black;
+  padding: 10px 30px;
+  font-size: 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
 }

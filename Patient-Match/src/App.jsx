@@ -1,5 +1,6 @@
 // App.js
 import React from "react";
+import { createRoot } from "react-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Registration from "./components/Registration";
@@ -22,5 +23,7 @@ function App() {
     </Router>
   );
 }
+
+createRoot(document.getElementById("root")).render(<App />);
 
 export default App;

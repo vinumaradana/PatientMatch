@@ -6,6 +6,7 @@ PatientMatch is a comprehensive application that facilitates patient and clinica
 * [Features](#features)
 * [Technologies Used](#technologies-used)
 * [Getting Started](#getting-started)
+* [API Endpoints](#api-endpoints)
 * [Contributors](#contributors)
 
 ## Features
@@ -18,6 +19,7 @@ PatientMatch is a comprehensive application that facilitates patient and clinica
 * **Scalable and Maintainable**
   * Built on Node.js and Express.js, leveraging MongoDB for data storage.
   * RESTful API architecture ensures scalability and maintainability.
+
  
 ## Technologies Used
 * #### Backend:
@@ -29,8 +31,20 @@ PatientMatch is a comprehensive application that facilitates patient and clinica
   * **HTML/CSS**: Basic frontend markup and styling.
   * **JavaScript**: Client-side scripting language for dynamic web interactions.
   * **React**: JavaScript library for building interactive user interfaces.
+
     
 ## Getting Started
 
+
+## API Endpoints
+* GET /patients: Retrieve all patient data.
+* POST /patients: Add new patient data.
+* GET /patients/:id: Retrieve patient data by ID.
+* POST /clinicals: Add new clinical trial data.
+* GET /clinicals: Retrieve all clinical trial data.
+* GET /clinicals/:id: Retrieve clinical trial data by ID.
+* POST /matchProcess: Perform matching process.
+
+  
 ## Contributors 
 Prachi Heda, Vinuthna Maradana, Chris Mo

@@ -1,28 +1,27 @@
-/* Navigation.css */
 .nav-container {
   background-color: rgb(29, 29, 29);
-  padding: 22px 30px;
-  position: fixed; 
+  padding: 15px 40px;
+  position: fixed;
   top: 0;
-  width: 100%; 
+  width: 100%;
+  display: flex;
   justify-content: space-between;
-  /* z-index: 1000; Ensure navigation bar is above other content */
+  align-items: center; /* Center items vertically */
 }
 
 .nav-list {
   list-style-type: none;
   margin: 0;
-  padding: 0px;
+  padding: 0;
   display: flex;
 }
 
 .nav-item {
-  display: inline;
-  margin-right: 50px;
+  margin-right: 30px;
 }
 
 .nav-item:last-child {
-  margin-right: 0;
+  margin-right: 70px;
 }
 
 .nav-link {
@@ -38,5 +37,5 @@
 .nav-logo {
   width: 100px; /* Set the desired width */
   height: auto; /* Maintain aspect ratio */
-  fill:#fff;
+  fill: #fff;
 }

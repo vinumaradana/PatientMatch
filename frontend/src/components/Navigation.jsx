@@ -1,4 +1,3 @@
-// Navigation.js
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navigation.css"; // Import CSS file for additional styling
@@ -24,12 +23,12 @@ const Navigation = () => {
           </li>
           <li className="nav-item">
             <Link to="/Host" className="nav-link">
-              Host a trial
+              Host a Trial
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/About" className="nav-link">
-              About us
+              About Us
             </Link>
           </li>
         </ul>

@@ -1,22 +1,22 @@
 import React from "react";
-import { useState } from 'react';
+import { useState } from "react";
 import "./ChartDrop.css";
-import axios from 'axios';
+import axios from "axios";
 
 const ChartDrop = () => {
-  const [data, setData] = useState('');
+  const [data, setData] = useState("");
   const handleSaveData = () => {
     const submitData = {
       data,
     };
     axios
-      .post('http://localhost:5555/patients', submitData)
+      .post("http://localhost:5555/patients", submitData)
       .then(() => {
-        alert('UR GOOD')
-        console.log('yay somethig happened')
+        alert("UR GOOD");
+        console.log("yay somethig happened");
       })
       .catch((error) => {
-        alert('An error occurered')
+        alert("An error occurered");
         console.log(error);
       });
   };
@@ -34,8 +34,9 @@ const ChartDrop = () => {
         <input
           type="text"
           className="form-control"
+          style={{ width: "100%", height: "150px" }}
           value={data}
-          onChange={(e)=>setData(e.target.value)}
+          onChange={(e) => setData(e.target.value)}
         />
       </div>
       <button
@@ -47,6 +48,6 @@ const ChartDrop = () => {
       </button>
     </div>
   );
-}
+};
 
 export default ChartDrop;

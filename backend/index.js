@@ -6,6 +6,7 @@ import cors from 'cors';
 import AWS from "aws-sdk";
 import { Patient } from "./models/patientModel.js";
 import { Clinical } from "./models/clinicalModel.js";
+import {EJSON} from 'bson';
 dotenv.config();
 
 
@@ -147,13 +148,40 @@ app.post('/matchProcess', async (request, response) => {
         const lastInsertedDocument = await Patient.find({}).sort({_id: -1}).limit(1);
   
       // Fetch all clinical data
-    //   const clinicalData = await Clinical.find({});
-  
+       const clinicalData = await Clinical.find({});
+      
+       // Access the data object
+// Extract the 'Entities' array from the 'data' object
+const entities = lastInsertedDocument[0].data.Entities;
+
+// Initialize variables to store age and gender
+let age, gender;
+
+// Loop through the Entities array to find the age and gender
+entities.forEach(entity => {
+    if (entity.Type === "AGE") {
+        age = entity.Text;
+    } else if (entity.Type === "GENDER") {
+        gender = entity.Text;
+    }
+});
+
+
+
+
       // Your matching process logic here
-      // This could involve processing patient and clinical data, performing calculations, etc.
+      // Assume 'dataDocument' is the MongoDB document containing the JSON data
+    //   const data = JSON.parse(jsonformat); // Assuming 'dataDocument' contains the string representation of JSON data
+    //   const ageEntity = data.Entities.find(entity => entity.Type === 'AGE');
+    //   const genderEntity = data.Entities.find(entity => entity.Type === 'GENDER');
   
+    //   const age = ageEntity ? ageEntity.Text : null;
+    //   const gender = genderEntity ? genderEntity.Text : null;
+  
+    //   console.log("Age:", age);
+    //   console.log("Gender:", gender);
       // Example response indicating success
-      response.status(200).json({ message: 'Matching process done'});
+      response.status(200).json({ message: 'Matching process done', age, gender});
     } catch (error) {
       // Handle errors appropriately
       console.error('Error in completing matching process:', error);

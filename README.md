@@ -2,6 +2,15 @@
 
 PatientMatch is a comprehensive application that facilitates patient and clinical trial matching through an intuitive web interface and RESTful API endpoints. This project is built using Node.js, Express.js, MongoDB (with Mongoose), and AWS Comprehend Medical for efficient data management and medical entity extraction.
 
+## Table of Contents
+[Features](##Features)
+Technologies Used
+Installation
+Usage
+API Endpoints
+Contributors
+License
+
 ## Features
 * **Intuitive and user-friendly webpage**
 * **Patient Data Management**

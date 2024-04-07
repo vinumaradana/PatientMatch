@@ -65,10 +65,16 @@ const ChartDrop = () => {
   return (
     <div className="chart-container">
       <h1 className="chart-title">Upload your chart here:</h1>
-      <h3>
-        Simply copy and paste your medical information in the text box below and
-        we'll match you shortly.
+      <h3 style={{ marginBottom: "10px" }}>
+        Simply copy and paste your medical chart in the text box below and we'll
+        match you shortly.
       </h3>
+      <h5 style={{ marginTop: "0px", fontSize: "" }}>
+        <i>
+          Please try to include at least your age, gender, and preexisting
+          medical conditions for the best results.
+        </i>
+      </h5>
 
       <div className="input-group">
         <div className="input-group-prepend">

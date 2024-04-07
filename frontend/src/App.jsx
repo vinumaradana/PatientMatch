@@ -9,6 +9,7 @@ import Navigation from "./components/Navigation";
 import About from "./components/About";
 import Host from "./components/Host";
 import Submit from "./components/Submit";
+import Directory from "./components/Directory"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path="/About" element={<About />} />
         <Route path="/Host" element={<Host />} />
         <Route path="/Submit" element={<Submit />} />
+        <Route path="/Directory" element={<Directory />} />
       </Routes>
     </Router>
   );

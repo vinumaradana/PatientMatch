@@ -101,13 +101,14 @@ const ChartDrop = () => {
 
       {/* Conditionally render documents information */}
       {loading ? (
-        <p>Loading...</p>
+        <p></p>
       ) : (
         <div>
           {documents.map((document, index) => (
             <div key={index}>
               <h2>Document {index + 1}</h2>
-              <p>ID: {document._id}</p>
+              <p>ID: {document._id}</p>\
+              <p>{document.data.title}</p>
               {/* Render other information of the document */}
             </div>
           ))}

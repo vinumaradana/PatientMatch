@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "react-router-dom";
 import {
   Navbar,
   NavbarBrand,
@@ -22,15 +22,11 @@ function Nav_FB() {
       </NavbarBrand>
       <NavbarToggle />
       <NavbarCollapse>
-        <NavbarLink href="#" active>
+        <NavbarLink href="/" active>
           Home
         </NavbarLink>
-        <NavbarLink as={Link} href="#">
-          About
-        </NavbarLink>
-        <NavbarLink href="#">Services</NavbarLink>
-        <NavbarLink href="#">Pricing</NavbarLink>
-        <NavbarLink href="#">Contact</NavbarLink>
+        <NavbarLink href="/About">About</NavbarLink>
+        <NavbarLink href="/Host">Host</NavbarLink>
       </NavbarCollapse>
     </Navbar>
   );

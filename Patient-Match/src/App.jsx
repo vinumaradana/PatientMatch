@@ -5,14 +5,13 @@ import Home from "./components/Home";
 import Registration from "./components/Registration";
 import ChartDrop from "./components/ChartDrop";
 import Navigation from "./components/Navigation";
-import Nav_FB from "./components/Nav_FB";
 import About from "./components/About";
 import Host from "./components/Host";
 
 function App() {
   return (
     <Router>
-      <Nav_FB />
+      <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Reg" element={<Registration />} />

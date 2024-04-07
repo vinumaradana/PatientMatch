@@ -1,19 +1,26 @@
 // Navigation.js
 import React from "react";
 import { Link } from "react-router-dom";
+import "./Navigation.css"; // Import CSS file for additional styling
 
 function Navigation() {
   return (
-    <nav>
-      <ul>
-        <li>
-          <Link to="/">Home</Link>
+    <nav className="nav-container">
+      <ul className="nav-list">
+        <li className="nav-item">
+          <Link to="/" className="nav-link">
+            Home
+          </Link>
         </li>
-        <li>
-          <Link to="/Host">Host a trial</Link>
+        <li className="nav-item">
+          <Link to="/Host" className="nav-link">
+            Host a trial
+          </Link>
         </li>
-        <li>
-          <Link to="/About">About us</Link>
+        <li className="nav-item">
+          <Link to="/About" className="nav-link">
+            About us
+          </Link>
         </li>
       </ul>
     </nav>

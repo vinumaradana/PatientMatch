@@ -13,6 +13,11 @@ const Navigation = () => {
           </Link>
         </li>
         <li className="nav-item">
+          <Link to="/Directory" className="nav-link">
+            Clinical Trials
+          </Link>
+        </li>
+        <li className="nav-item">
           <Link to="/Host" className="nav-link">
             Host a trial
           </Link>

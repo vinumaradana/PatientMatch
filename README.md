@@ -28,12 +28,21 @@ PatientMatch is a comprehensive application that facilitates patient and clinica
   * **MongoDB (Mongoose)**: NoSQL database used for storing and managing patient data and clinical trial details.
   * **AWS SDK (AWS Comprehend Medical)**: Integrates with AWS services to perform medical entity extraction from text.
 * #### Frontend:
+  * **React**: JavaScript library for building interactive user interfaces.
   * **HTML/CSS**: Basic frontend markup and styling.
   * **JavaScript**: Client-side scripting language for dynamic web interactions.
-  * **React**: JavaScript library for building interactive user interfaces.
+  
 
     
 ## Getting Started
+1. clone the directory.
+2. `cd` to backend folder.
+3. create `.env` file with AWS credentials (AWS_REGION, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY)
+4. create `config.js` file with MongoDB links (PORT, mongoDBURL)
+5. `npm run dev`
+6. create a new terminal, and `cd` frontend folder
+7. `npm run dev`
+8. open in chrome browser
 
 
 ## API Endpoints
@@ -50,3 +59,6 @@ PatientMatch is a comprehensive application that facilitates patient and clinica
 * Prachi Heda 
 * Vinuthna Maradana
 * Chris Mo
+
+## Citations 
+Clinical Trial information obtained from ClinicalTrials.gov

@@ -2,13 +2,11 @@
     margin-top: 0px;
     text-align: left;
     padding: 100px;
-
 }
 
 .input-group-label {
     display: block;
     margin-bottom: 3px;
-    
 }
 
 .input-group-input {
@@ -18,7 +16,6 @@
     padding: 10px;
     margin-bottom: 30px;
     font-size: 16px;
-    
 }
 
 .reg-button {
@@ -29,13 +26,11 @@
     align-items: center;
     text-align: center;
     background-color:  #08a8d5;
-    color: #000000;
-    
+    color: #000000;   
 }
 
 
 .register-link {
-    
     display: inline-block;
     background-color: #08a8d5;
     color: black;
@@ -55,3 +50,14 @@
     color: #45a3f6;
   }
   
+  .registration-title {
+    font-size: 48px;
+    color: #000000;
+    margin-bottom: 0%;
+  }
+  
+  .registration-subtitle {
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 30px;
+  }

@@ -4,12 +4,9 @@ PatientMatch is a comprehensive application that facilitates patient and clinica
 
 ## Table of Contents
 [Features](##Features)
-Technologies Used
-Installation
-Usage
-API Endpoints
-Contributors
-License
+[Technologies Used](##Technologies)
+[Getting Started](##Getting)
+[Contributors](##Contributors)
 
 ## Features
 * **Intuitive and user-friendly webpage**
@@ -32,6 +29,8 @@ License
   * **HTML/CSS**: Basic frontend markup and styling.
   * **JavaScript**: Client-side scripting language for dynamic web interactions.
   * **React**: JavaScript library for building interactive user interfaces.
+    
+## Getting Started
 
 ## Contibutors 
 Prachi Heda, Vinuthna Maradana, Chris Mo

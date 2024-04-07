@@ -5,6 +5,7 @@
   position: fixed; 
   top: 0;
   width: 100%; 
+  justify-content: space-between;
   /* z-index: 1000; Ensure navigation bar is above other content */
 }
 
@@ -32,4 +33,10 @@
 
 .nav-link:hover {
   text-decoration: underline;
+}
+
+.nav-logo {
+  width: 100px; /* Set the desired width */
+  height: auto; /* Maintain aspect ratio */
+  fill:#fff;
 }

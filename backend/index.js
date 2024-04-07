@@ -178,14 +178,13 @@ app.post('/matchProcess', async (request, response) => {
             // Calculate the similarity score between patientText and the current clinical data text
             const similarity = stringSimilarity(patientText, text);
 
-            // If similarity score is greater than 0.5, add the object id to similarIds array
-            if (similarity > 0.4) {
-                console.log(similarity)
+            // If similarity score is greater than 0.6, add the object id to similarIds array
+            if (similarity > 0.6) {
                 similarIds.push(clinical._id);
             }
         });
 
-        response.status(200).json({ message: 'Matching process done', similarIds });
+        response.status(200).json({ message: 'Matching process done', similarIds});
     } catch (error) {
         // Handle errors appropriately
         console.error('Error in completing matching process:', error);

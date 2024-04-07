@@ -6,25 +6,8 @@ import { Link } from "react-router-dom";
 
 const ChartDrop = () => {
   const [data, setData] = useState("");
+  const [similarIds, setSimilarIds] = useState([]);
 
-  // const handleSaveData = () => {
-  //   const submitData = {
-  //     data,
-  //   };
-  //   axios
-  //     .post('http://localhost:5555/patients', submitData)
-  //     .then(() => {
-  //       var id = submitData._id
-  //       console.log("hello" + id);
-  //       alert('Matching process initiated');
-  //       console.log('Matching process initiated');
-
-  //     })
-  //     .catch((error) => {
-  //       alert('An error occurered')
-  //       console.log(error);
-  //     });
-  // };
 
   const handleSaveData = () => {
     const submitData = {
@@ -35,9 +18,14 @@ const ChartDrop = () => {
       .then(() => {
         axios
           .post("http://localhost:5555/matchProcess")
-          .then(() => {
-            alert("Matching process initiated");
+          .then((response) => {
             console.log("Matching process initiated");
+            // Extract similar IDs from the response data
+            const { similarIds } = response.data;
+            // Update state with similar IDs
+            setSimilarIds(similarIds);
+
+            alert('Similar IDs:\n' + JSON.stringify(similarIds));
           })
           .catch((error) => {
             alert("Error initiating matching process");
@@ -86,8 +74,19 @@ const ChartDrop = () => {
       </div>
 
       <button className="submit-button" onClick={handleSaveData}>
-        <Link to="/Submit" className="submit-link">
+      <Link>
           Find a match
+        </Link>
+      </button>
+      <button className="submit-button" >
+      <Link
+          to={{
+            pathname: "/Submit",
+            state: { similarIds: similarIds }, // Pass similarIds array as state
+          }}
+          className="submit-link"
+        >
+          Next Page
         </Link>
       </button>
     </div>

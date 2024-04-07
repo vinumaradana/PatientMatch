@@ -1,0 +1,35 @@
+/* Navigation.css */
+.nav-container {
+  background-color: rgb(29, 29, 29);
+  padding: 22px 30px;
+  position: fixed; 
+  top: 0;
+  width: 100%; 
+  /* z-index: 1000; Ensure navigation bar is above other content */
+}
+
+.nav-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-item {
+  display: inline;
+  margin-right: 20px;
+}
+
+.nav-item:last-child {
+  margin-right: 0;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 17px;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,57 @@
+.reg-container {
+    margin-top: 0px;
+    text-align: left;
+    padding: 100px;
+
+}
+
+.input-group-label {
+    display: block;
+    margin-bottom: 3px;
+    
+}
+
+.input-group-input {
+    display: block;
+    width: 55%;
+    height:50%;
+    padding: 10px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    
+}
+
+.reg-button {
+    width: 150px; /* Remove the quotation marks */
+    height: 60px; /* Remove the quotation marks */
+    font-size: 24px; /* Remove the quotation marks */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color:  #08a8d5;
+    color: #000000;
+    
+}
+
+
+.register-link {
+    
+    display: inline-block;
+    background-color: #08a8d5;
+    color: black;
+    padding: 15px 30px;
+    font-size: 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .register-link:hover {
+    background-color: #08a8d5;
+  }
+  
+  .guest-link {
+    text-decoration: underline;
+    color: #45a3f6;
+  }
+  

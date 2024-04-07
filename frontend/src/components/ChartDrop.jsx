@@ -105,12 +105,13 @@ const ChartDrop = () => {
       ) : (
         <div>
           {documents.map((document, index) => (
-            <div key={index}>
-              <h2>Document {index + 1}</h2>
-              <p>ID: {document._id}</p>\
-              <p>{document.data.title}</p>
-              {/* Render other information of the document */}
-            </div>
+            <div key={document._id}>
+            <h2>{document.data.title}</h2>
+            <p><strong>Condition:</strong> {document.data.condition}</p>
+            <p><strong>Start Date:</strong> {document.data.start_date}</p>
+            <p><strong>Location:</strong> {document.data.location}</p>
+            <p><strong>Brief Summary:</strong> {document.data.brief_summary}</p>
+          </div>
           ))}
         </div>
       )}

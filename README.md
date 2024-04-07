@@ -14,12 +14,12 @@ PatientMatch is a comprehensive application that facilitates patient and clinica
   * RESTful API architecture ensures scalability and maintainability.
  
 ## Technologies Used
-* ###Backend###:
+* ### Backend:
   * **Node.js**: JavaScript runtime environment for building scalable server-side applications.
   * **Express.jsv**: Web framework for Node.js that simplifies routing, middleware integration, and request handling.
   * **MongoDB (Mongoose)**: NoSQL database used for storing and managing patient data and clinical trial details.
   * **AWS SDK (AWS Comprehend Medical)**: Integrates with AWS services to perform medical entity extraction from text.
-* ###Frontend###:
+* ### Frontend:
   * **HTML/CSS**: Basic frontend markup and styling.
   * **JavaScript**: Client-side scripting language for dynamic web interactions.
   * **React**: JavaScript library for building interactive user interfaces.

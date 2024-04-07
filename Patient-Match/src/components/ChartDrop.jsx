@@ -1,13 +1,9 @@
 import React from "react";
 import { useState } from 'react';
 import "./ChartDrop.css";
-<<<<<<< HEAD
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-=======
-import axios from 'axios';
->>>>>>> refs/remotes/origin/main
 
 const ChartDrop = () => {
   const [data, setData] = useState('');
@@ -71,7 +67,6 @@ const ChartDrop = () => {
         <div class="input-group-prepend">
           <span class="input-group-text"></span>
         </div>
-<<<<<<< HEAD
         <textarea
           class="form-control"
           aria-label="With textarea"
@@ -91,14 +86,6 @@ const ChartDrop = () => {
           }}
           
         ></textarea>
-=======
-        <input
-          type="text"
-          className="form-control"
-          value={data}
-          onChange={(e)=>setData(e.target.value)}
-        />
->>>>>>> refs/remotes/origin/main
       </div>
 
 

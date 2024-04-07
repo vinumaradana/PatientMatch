@@ -28,7 +28,7 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: #89CFF0;
+    background-color:  #08a8d5;
     color: #000000;
     
 }
@@ -37,7 +37,7 @@
 .register-link {
     
     display: inline-block;
-    background-color: #60cdff;
+    background-color: #08a8d5;
     color: black;
     padding: 15px 30px;
     font-size: 20px;
@@ -47,11 +47,11 @@
   }
   
   .register-link:hover {
-    background-color: #60cdff;
+    background-color: #08a8d5;
   }
   
   .guest-link {
     text-decoration: underline;
-    color: #89CFF0;
+    color: #45a3f6;
   }
   

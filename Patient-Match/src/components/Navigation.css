@@ -1,7 +1,7 @@
 /* Navigation.css */
 .nav-container {
   background-color: rgb(29, 29, 29);
-  padding: 20px 30px;
+  padding: 22px 30px;
   position: fixed; 
   top: 0;
   width: 100%; 
@@ -27,7 +27,7 @@
 .nav-link {
   text-decoration: none;
   color: #fff;
-  font-size: 16px;
+  font-size: 17px;
 }
 
 .nav-link:hover {

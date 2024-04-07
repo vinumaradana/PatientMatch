@@ -7,7 +7,7 @@
 .submit-button {
   margin-top: 20px;
   display: inline-block;
-  background-color: #60cdff;
+  background-color:  #08a8d5;
   color: black;
   padding: 10px 30px;
   font-size: 20px;
@@ -17,12 +17,12 @@
 } */
 
  submit-button:hover {
-  background-color: #60cdff;
+  background-color:  #08a8d5;
 } 
 
 .submit-link {
   display: inline-block;
-  background-color: #60cdff;
+  background-color:  #08a8d5;
   color: black;
   padding: 10px 30px;
   font-size: 20px;

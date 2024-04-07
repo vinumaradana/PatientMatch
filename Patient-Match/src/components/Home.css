@@ -19,7 +19,7 @@
 
 .get-started-link {
   display: inline-block;
-  background-color: #60cdff;
+  background-color: #08a8d5;
   color: black;
   padding: 15px 30px;
   font-size: 20px;
@@ -31,5 +31,5 @@
 
 
 .get-started-link:hover {
-  background-color: #60cdff;
+  background-color: #08a8d5;
 }

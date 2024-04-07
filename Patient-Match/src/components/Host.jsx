@@ -31,7 +31,7 @@ function Host() {
       </div>
 
       <button
-        style={{ backgroundColor: "#89CFF0", color: "#000000" }}
+        style={{ backgroundColor: "#0d9eff", color: "#000000" }}
         className="submit-button"
       >
         Publish

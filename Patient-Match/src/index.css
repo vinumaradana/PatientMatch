@@ -25,7 +25,9 @@ a:hover {
 
 body {
   margin: 0;
-  /* background-image: url(/src/assets/desktop.jpeg); */
+  background-image: url(/src/assets/d3.avif);
+  background-size: cover; 
+  background-position: center;
   display: flex;
   place-items: center;
   min-width: 320px;
@@ -68,4 +70,5 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+  
 }

@@ -1,6 +1,6 @@
 # PatientMatch
 
-This project implements a patient and clincial trial matching algorithm using  Node.js, Express.js, MongoDB, and AWS Comprehend Medical. The system provides RESTful API endpoints to manage patient data and clinical trial details efficiently.
+PatientMatch is a comprehensive application that facilitates patient and clinical trial matching through an intuitive web interface and RESTful API endpoints. This project is built using Node.js, Express.js, MongoDB (with Mongoose), and AWS Comprehend Medical for efficient data management and medical entity extraction.
 
 ## Features
 * Intuitive and user-friendly webpage
@@ -14,12 +14,15 @@ This project implements a patient and clincial trial matching algorithm using  N
   * RESTful API architecture ensures scalability and maintainability.
  
 ## Technologies Used
-* Node.js
-* Express.js
-* MongoDB(Mongoose)
-* AWS SDK (AWS Comprehend Medical)
-* JavaScript
-* HTML/CSS
+* Backend:
+ * Node.js: JavaScript runtime environment for building scalable server-side applications.
+ * Express.js: Web framework for Node.js that simplifies routing, middleware integration, and request handling.
+ * MongoDB (Mongoose): NoSQL database used for storing and managing patient data and clinical trial details.
+ * AWS SDK (AWS Comprehend Medical): Integrates with AWS services to perform medical entity extraction from text.
+* Frontend:
+ * HTML/CSS: Basic frontend markup and styling.
+ * JavaScript: Client-side scripting language for dynamic web interactions.
+ * React: JavaScript library for building interactive user interfaces.
 
 ## Contibutors 
 Prachi Heda, Vinuthna Maradana, Chris Mo

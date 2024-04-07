@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 
+
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -35,8 +36,23 @@ const saveData = async (request, response, Model) => {
 };
 
 // Route for saving patient data
+// app.post('/patients', async (request, response) => {
+//     await saveData(request, response, Patient);
+// });
 app.post('/patients', async (request, response) => {
-    await saveData(request, response, Patient);
+    try {
+        const newData = request.body.data;
+        const medicalDetails = await getMedicalDetails(newData);
+        // Now you have the medical details, you can process further or save them to the database
+        const patientData = {
+            data: medicalDetails
+        };
+        const data = await Patient.create(patientData);
+        return response.status(201).send(data);
+    } catch (error) {
+        console.error(error);
+        response.status(500).send({ message: error.message });
+    }
 });
 
 // Route for saving clinical data
@@ -127,6 +143,19 @@ async function getDetails(text) {
 
     }
     return ("identified desases are: " + diseases.join(", "));
+}
+
+async function getMedicalDetails(text) {
+    try {
+        const params = {
+            Text: text
+        };
+        const data = await comprehendmedical.detectEntitiesV2(params).promise();
+        return data; // Return the output of calling AWS Comprehend Medical
+    } catch (error) {
+        console.error("Error processing medical details:", error);
+        throw error; // rethrow the error to be handled by the caller
+    }
 }
 async function main(text) {
     var diseases = await getDetails(text);

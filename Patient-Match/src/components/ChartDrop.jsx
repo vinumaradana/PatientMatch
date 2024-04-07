@@ -12,7 +12,6 @@ const ChartDrop = () => {
     axios
       .post('http://localhost:5555/patients', submitData)
       .then(() => {
-        alert('UR GOOD')
         console.log('yay somethig happened')
       })
       .catch((error) => {

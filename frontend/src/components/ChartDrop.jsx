@@ -109,13 +109,19 @@ const ChartDrop = () => {
           <h1>Your Matches</h1>
           {documents.map((document, index) => (
             <div key={document._id}>
-            <h2>{document.data.title}</h2>
-            <p><strong>Condition:</strong> {document.data.condition}</p>
-            <p><strong>Start Date:</strong> {document.data.start_date}</p>
-            <p><strong>Location:</strong> {document.data.location}</p>
-            <p><strong>Brief Summary:</strong> {document.data.brief_summary}</p>
-            <p><strong>Similarity Score:</strong> {similarityScores[index]}</p>
-          </div>
+              <h2>{document.data.title}</h2>
+              <p><strong>Condition:</strong> {document.data.condition}</p>
+              <p><strong>Start Date:</strong> {document.data.start_date}</p>
+              <p><strong>Location:</strong> {document.data.location}</p>
+              <p><strong>Brief Summary:</strong> {document.data.brief_summary}</p>
+              <p><strong>Similarity Score:</strong> {similarityScores[index]}</p>
+              <div className="similarity-bar">
+                <div
+                  className="similarity-bar-inner"
+                  style={{ width: `${similarityScores[index] * 100}%` }}
+                ></div>
+              </div>
+            </div>
           ))}
         </div>
       )}
